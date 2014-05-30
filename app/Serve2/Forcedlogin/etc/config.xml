@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <helpers>
+            <serve2_forcedlogin>
+                <class>Serve2_Forcedlogin_Helper</class>
+            </serve2_forcedlogin>
+        </helpers>
+    </global>
+    <frontend>
+        <models>
+            <serve2_forcedlogin>
+                <class>Serve2_Forcedlogin_Model</class>
+            </serve2_forcedlogin>    
+        </models>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <serve2_forcedlogin_observer>
+                        <type>singleton</type>
+                        <class>Serve2_Forcedlogin_Model_Observer</class>
+                        <method>checkLogin</method>
+                    </serve2_forcedlogin_observer>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
+</config>
